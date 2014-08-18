@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <title>True Blood</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.22//angular.min.js"></script>
+  <script type="text/javascript" src="trueblood.js"></script>
+</head>
+<body>
+
+  <div ng-app="myApp">
+    <div ng-controller="TrueBloodCtrl">
+      <input type="text" ng-model="search.$">
+      <table>
+        <tr ng-repeat="actor in trueBlood.cast | orderBy:'name' | limitTo:10 | filter:search">
+            <td>{{actor.name | lowercase}}</td>
+            <td>{{actor.character | uppercase}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>
+
